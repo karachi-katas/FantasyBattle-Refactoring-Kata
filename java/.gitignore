@@ -1,2 +1,6 @@
-.idea
-law-of-demeter.iml
+.idea/
+.classpath
+.project
+.settings/
+target/
+**/*.iml
