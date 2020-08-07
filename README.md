@@ -38,3 +38,5 @@ The Law of Demeter says that a method f of a class C should only call the method
 - An object created by f
 - An object passed as an argument to f
 - An object held in an instance variable of C
+
+The method should not invoke methods on objects that are returned by any of the allowed functions. In other words, **talk to friends, not to strangers.**
