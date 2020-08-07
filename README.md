@@ -29,4 +29,12 @@ At present the only kind of enemy supported is a SimpleEnemy. This
 kind of target has one Buff with a soakModifier of 1.0 and damage 
 modifier of 1.0. It wears an Armor with a Damage Soak of 5.
 
+Law of Demeter
+--------------
 
+The Law of Demeter says that a method f of a class C should only call the methods of these:
+
+- C
+- An object created by f
+- An object passed as an argument to f
+- An object held in an instance variable of C
