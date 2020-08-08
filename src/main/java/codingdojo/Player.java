@@ -11,7 +11,7 @@ class Player extends Target {
     }
 
     Damage calculateDamage(Target otherTarget) {
-        int baseDamage = this.inventory.getBaseDamage();
+        int baseDamage = inventory.getEquipment().getBaseDamage();
         float damageModifier = getDamageModifier();
         int totalDamage = Math.round(baseDamage * damageModifier);
         int soak = otherTarget.getSoak(totalDamage);
