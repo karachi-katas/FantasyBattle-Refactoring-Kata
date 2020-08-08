@@ -18,7 +18,7 @@ public class PlayerTest {
         Stats stats = mock(Stats.class);
         SimpleEnemy target = mock(SimpleEnemy.class);
 
-        Damage damage = new Player(inventory, null, stats).calculateDamage(target);
+        Damage damage = new Player(null, stats).calculateDamage(target);
         assertEquals(10, damage.getAmount());
     }
 
@@ -40,7 +40,7 @@ public class PlayerTest {
         Stats stats = new Stats(0);
         Buff basicBuff=new BasicBuff(1.0f,1.0f);
         SimpleEnemy target = new SimpleEnemy( new SimpleArmor(5), Collections.singletonList(basicBuff));
-        Damage damage = new Player(inventory, equipment, stats).calculateDamage(target);
+        Damage damage = new Player(equipment, stats).calculateDamage(target);
         assertEquals(102, damage.getAmount());
     }
 }

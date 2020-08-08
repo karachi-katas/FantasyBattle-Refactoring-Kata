@@ -2,12 +2,10 @@ package codingdojo;
 
 
 class Player extends Target {
-    private Inventory inventory;
     private Equipment equipment;
     private Stats stats;
 
-    Player(Inventory inventory, Equipment equipment, Stats stats) {
-        this.inventory = inventory;
+    Player(Equipment equipment, Stats stats) {
         this.equipment = equipment;
         this.stats = stats;
     }
