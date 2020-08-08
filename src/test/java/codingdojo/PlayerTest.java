@@ -35,11 +35,13 @@ public class PlayerTest {
         Equipment equipment = new Equipment(sword, sword, helmet, boots,chestplate);
         Inventory inventory = new Inventory(equipment);
         Stats stats = new Stats(0);
+
         Armor armor = new SimpleArmor(10);
-        Buff buff = new BasicBuff(10,10);
-        List<Buff> buffList = Collections.singletonList(buff);
+        Buff buff = new BasicBuff(10,10000);
+        Buff buff2 = new BasicBuff(10,10000);
+        List<Buff> buffList = Arrays.asList(buff, buff2);
         SimpleEnemy target = new SimpleEnemy(armor, buffList);
         Damage damage = new Player(inventory, stats).calculateDamage(target);
-        assertEquals(10, damage.getAmount());
+        assertEquals(290, damage.getAmount());
     }
 }
