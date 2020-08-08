@@ -22,19 +22,18 @@ public class SimpleEnemy extends Target {
         return this.armor;
     }
 
-    public int getEnemySoak() {
+    public int getDamageSoak() {
         int soak;
         soak = Math.round(
-            this.getArmor().getDamageSoak() *
-                (
-                    ((float) this.getBuffs()
-                            .stream()
-                            .mapToDouble(Buff::soakModifier)
-                            .sum()) +
-                            1f
-                )
-        );
+            this.getArmor().getDamageSoak() * ( ((float) sumOfSoakModifier()) + 1f ) );
         return soak;
+    }
+
+    private double sumOfSoakModifier() {
+        return this.getBuffs()
+                .stream()
+                .mapToDouble(Buff::soakModifier)
+                .sum();
     }
 
 }

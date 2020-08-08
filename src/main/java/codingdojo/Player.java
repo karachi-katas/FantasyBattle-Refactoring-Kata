@@ -26,7 +26,7 @@ class Player extends Target {
             soak = totalDamage;
         } else if (other instanceof SimpleEnemy) {
             SimpleEnemy simpleEnemy = (SimpleEnemy) other;
-            soak = simpleEnemy.getEnemySoak();
+            soak = simpleEnemy.getDamageSoak();
 
         }
         return soak;
