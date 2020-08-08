@@ -11,13 +11,12 @@ class Player extends Target {
     }
 
     Damage calculateDamage(Target other) {
-
         int totalDamage = getTotalDamage();
         int soak = other.getSoak(totalDamage);
-        return new Damage(subtract(totalDamage, soak));
+        return new Damage(subtractSoakFromTotalDamage(totalDamage, soak));
     }
 
-    private int subtract(int totalDamage, int soak) {
+    private int subtractSoakFromTotalDamage(int totalDamage, int soak) {
         return Math.max(0, totalDamage - soak);
     }
 
@@ -33,8 +32,6 @@ class Player extends Target {
 
         return totalDamage;
     }
-
-
 
     //LAW OF DELEMETER
 
