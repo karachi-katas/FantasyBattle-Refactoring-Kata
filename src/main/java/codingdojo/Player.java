@@ -27,20 +27,13 @@ class Player extends Target {
         } else if (other instanceof SimpleEnemy) {
             SimpleEnemy simpleEnemy = (SimpleEnemy) other;
             soak = Math.round(
-                simpleEnemy.getArmor().getDamageSoak() *
+                simpleEnemy.getDamageSoak() *
                 (
-                    sumOfSoakModifiers(simpleEnemy) + 1f
+                    simpleEnemy.sumOfSoakModifiers() + 1f
                 )
             );
         }
         return soak;
-    }
-
-    private float sumOfSoakModifiers(SimpleEnemy simpleEnemy) {
-        return (float) simpleEnemy.getBuffs()
-            .stream()
-            .mapToDouble(Buff::soakModifier)
-            .sum();
     }
 
     private float getDamageModifier() {
