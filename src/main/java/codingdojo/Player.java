@@ -3,15 +3,17 @@ package codingdojo;
 
 class Player extends Target {
     private Inventory inventory;
+    private Equipment equipment;
     private Stats stats;
 
     Player(Inventory inventory, Stats stats) {
         this.inventory = inventory;
+        this.equipment = inventory.getEquipment();
         this.stats = stats;
     }
 
     Damage calculateDamage(Target otherTarget) {
-        int baseDamage = inventory.getEquipment().getBaseDamage();
+        int baseDamage = equipment.getBaseDamage();
         float damageModifier = getDamageModifier();
         int totalDamage = Math.round(baseDamage * damageModifier);
         int soak = otherTarget.getSoak(totalDamage);
@@ -26,7 +28,6 @@ class Player extends Target {
     }
 
     private float getDamageModifier() {
-        Equipment equipment = this.inventory.getEquipment();
         Item leftHand = equipment.getLeftHand();
         Item rightHand = equipment.getRightHand();
         Item head = equipment.getHead();
