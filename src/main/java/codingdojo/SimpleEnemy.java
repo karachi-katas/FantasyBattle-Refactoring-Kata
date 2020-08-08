@@ -1,7 +1,5 @@
 package codingdojo;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class SimpleEnemy extends Target {
@@ -18,18 +16,20 @@ public class SimpleEnemy extends Target {
         return buffs;
     }
 
-    Armor getArmor() {
-        return this.armor;
-    }
-
-    int getDamageSoak() {
-        return getArmor().getDamageSoak();
-    }
-
     float sumOfSoakModifiers() {
         return (float) getBuffs()
             .stream()
             .mapToDouble(Buff::soakModifier)
             .sum();
+    }
+
+    @Override
+    int getSoak(int totalDamage) {
+        return Math.round(
+            this.armor.getDamageSoak() *
+            (
+                sumOfSoakModifiers() + 1f
+            )
+        );
     }
 }
