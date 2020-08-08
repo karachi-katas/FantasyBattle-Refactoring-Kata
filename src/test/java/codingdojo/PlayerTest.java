@@ -26,7 +26,11 @@ public class PlayerTest {
     @Ignore("Test is not finished yet")
     @Test
     public void damageCalculations() {
-        Inventory inventory = new Inventory(null);
+        Item sword = new BasicItem("sword", 10, 2);
+        Item helmet = new BasicItem("helmet", 10, 2);
+        Item boots = new BasicItem("boots", 10, 2);
+        Equipment equipment = new Equipment(sword, sword, helmet, boots);
+        Inventory inventory = new Inventory(equipment);
         Stats stats = new Stats(0);
         SimpleEnemy target = new SimpleEnemy(null, null);
         Damage damage = new Player(inventory, stats).calculateDamage(target);
