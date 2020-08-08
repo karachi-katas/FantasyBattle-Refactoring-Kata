@@ -4,7 +4,7 @@ class Damage {
     private int amount;
 
     Damage(int amount) {
-        this.amount = amount;
+        this.amount = Math.max(0, amount);
     }
 
     int getAmount() {
