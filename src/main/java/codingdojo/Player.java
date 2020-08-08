@@ -13,7 +13,7 @@ class Player extends Target {
     Damage calculateDamage(Target other) {
 
         int totalDamage = getTotalDamage();
-        int soak = other.getSoak(other, totalDamage);
+        int soak = other.getSoak(totalDamage);
         return new Damage(subtract(totalDamage, soak));
     }
 
@@ -27,7 +27,7 @@ class Player extends Target {
         return Math.round(baseDamage * damageModifier);
     }
 
-    public int getSoak(Target other, int totalDamage) {
+    public int getSoak(int totalDamage) {
             // TODO: Not implemented yet
             //  Add friendly fire
 

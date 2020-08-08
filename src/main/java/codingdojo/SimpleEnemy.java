@@ -37,7 +37,7 @@ public class SimpleEnemy extends Target {
     }
 
     @Override
-    int getSoak(Target other, int totalDamage) {
+    int getSoak(int totalDamage) {
 
         return getDamageSoak();
     }
