@@ -21,7 +21,7 @@ public class PlayerTest {
         SimpleEnemy target = mock(SimpleEnemy.class);
 
         Damage damage = new Player(inventory, stats).calculateDamage(target);
-        assertEquals(10, damage.getAmount());
+        assertEquals(390, damage.getAmount());
     }
 
     // choose this one if you are not familiar with mocks

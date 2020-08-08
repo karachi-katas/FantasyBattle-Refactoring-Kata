@@ -11,27 +11,32 @@ class Player extends Target {
     }
 
     Damage calculateDamage(Target other) {
+
+        int totalDamage = getTotalDamage();
+        int soak = other.getSoak(other, totalDamage);
+        return new Damage(subtract(totalDamage, soak));
+    }
+
+    private int subtract(int totalDamage, int soak) {
+        return Math.max(0, totalDamage - soak);
+    }
+
+    private int getTotalDamage() {
         int baseDamage = getBaseDamage();
         float damageModifier = getDamageModifier();
-        int totalDamage = Math.round(baseDamage * damageModifier);
-        int soak = getSoak(other, totalDamage);
-        return new Damage(Math.max(0, totalDamage - soak));
+        return Math.round(baseDamage * damageModifier);
     }
 
-    private int getSoak(Target other, int totalDamage) {
-        int soak = 0;
-        if (other instanceof Player) {
+    public int getSoak(Target other, int totalDamage) {
             // TODO: Not implemented yet
             //  Add friendly fire
-            soak = totalDamage;
-        } else if (other instanceof SimpleEnemy) {
-            SimpleEnemy simpleEnemy = (SimpleEnemy) other;
-            soak = simpleEnemy.getDamageSoak();
 
-        }
-        return soak;
+        return totalDamage;
     }
 
+
+
+    //LAW OF DELEMETER
 
     private float getDamageModifier() {
         float sumOfDamageModifier = this.inventory.getSumOfDamageModifier();
