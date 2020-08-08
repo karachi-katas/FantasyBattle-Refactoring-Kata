@@ -29,7 +29,6 @@ class Player extends Target {
     public int getSoak(int totalDamage) {
             // TODO: Not implemented yet
             //  Add friendly fire
-
         return totalDamage;
     }
 

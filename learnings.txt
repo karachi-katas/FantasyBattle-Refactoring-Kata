@@ -1,0 +1,8 @@
+1. Function Extraction -> to make functions simpler, easier to explain it to others
+2. Law of Demeter, understanding and why it has significance
+3. Applying Law of Demeter made code readable
+4. Pair Programming, how it helps in improving code working together in short time
+5. Polymorphism by abstraction,
+6. Testing, How to test each function, how it helps in refactoring. And how it alerts if something breaks
+7. A function should either high-level functions or low-level function, never a combination of both
+
