@@ -29,15 +29,18 @@ class Player extends Target {
             soak = Math.round(
                 simpleEnemy.getArmor().getDamageSoak() *
                 (
-                    ((float) simpleEnemy.getBuffs()
-                        .stream()
-                        .mapToDouble(Buff::soakModifier)
-                        .sum()) +
-                    1f
+                    sumOfSoakModifiers(simpleEnemy) + 1f
                 )
             );
         }
         return soak;
+    }
+
+    private float sumOfSoakModifiers(SimpleEnemy simpleEnemy) {
+        return (float) simpleEnemy.getBuffs()
+            .stream()
+            .mapToDouble(Buff::soakModifier)
+            .sum();
     }
 
     private float getDamageModifier() {
